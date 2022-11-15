@@ -1,0 +1,15 @@
+.notesList {
+  margin-top: 20px;
+  margin-left: 200px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 50px;
+  grid-row-gap: 100px;
+}
+
+.notes {
+  border: 1px solid black;
+  height: 200px;
+  width: 250px;
+}
