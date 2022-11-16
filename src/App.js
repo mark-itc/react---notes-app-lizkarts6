@@ -1,14 +1,12 @@
 import "./App.css";
 import { useState } from "react";
 
-
-
 function NotesAppContainer() {
   const [notes, setNotes] = useState([]);
 
   function NoteItem(props) {
-    const { noteText, removeItemHandler } = props;
-  
+    const { noteText, removeItemHandler, noteTitle } = props;
+
     let now = new Date(),
       date =
         now.getDate() +
@@ -20,10 +18,15 @@ function NotesAppContainer() {
         now.getHours() +
         ":" +
         now.getMinutes();
-  
+
     return (
       <div className="notes">
-        <button onClick={removeItemHandler}>X</button>
+        <div className="deleteBtnDiv">
+          <button onClick={removeItemHandler} className="deleteBtn">
+            X
+          </button>
+        </div>
+        <h5>{noteTitle}</h5>
         <div>{noteText}</div>
         <div>{date}</div>
       </div>
@@ -36,12 +39,12 @@ function NotesAppContainer() {
   }
 
   const onRemoveItem = (itemIndex) => {
-    if (window.confirm("Do you really want to delete this note?")){
-    const toDoItemsDuplicate = [...notes]
-    toDoItemsDuplicate.splice(itemIndex, 1);
-    setNotes(toDoItemsDuplicate);
-  }
-  }
+    if (window.confirm("Do you really want to delete this note?")) {
+      const toDoItemsDuplicate = [...notes];
+      toDoItemsDuplicate.splice(itemIndex, 1);
+      setNotes(toDoItemsDuplicate);
+    }
+  };
   return (
     <div>
       <h3>Notes App</h3>
@@ -50,6 +53,7 @@ function NotesAppContainer() {
         {notes.map((item, index) => (
           <NoteItem
             noteText="Example note"
+            noteTitle="Note Title"
             removeItemHandler={onRemoveItem}
             key={index}
           />
