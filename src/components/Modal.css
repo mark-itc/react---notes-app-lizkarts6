@@ -1,0 +1,23 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.modal h2 {
+margin-top: 0;
+color: pink;
+}
+
+.modal button {
+  border: 2px solid pink;
+  border-radius: 4px;
+  background-color: transparent;
+  margin-top: 150px;
+}
+
+.modal button:hover {
+  background-color: pink;
+  cursor: pointer;
+}
